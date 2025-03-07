@@ -5,4 +5,5 @@ metadata:
   name: service-headless
 resources:
   - deployment.yml
+  - service.yml
   - monitor.yml
