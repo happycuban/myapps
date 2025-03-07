@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: mw-service-headless-monitor
+  namespace: monitoring
+  labels:
+    release: prometheus-operator
+spec:
+  selector:
+    matchLabels:
+      app: mw-service-headless
+  namespaceSelector:
+    matchNames:
+      - mw-services
+  endpoints:
+    - port: '8080'
+      path: /metrics
+      interval: 30s

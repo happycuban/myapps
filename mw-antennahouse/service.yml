@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mw-xslfo-antennahouse
+  namespace: mw-services
+  labels:
+    app: mw-xslfo-antennahouse
+spec:
+  ipFamilyPolicy: PreferDualStack
+  selector:
+    app: mw-xslfo-antennahouse
+  ports:
+    - port: 8080
+      targetPort: 8080

@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mw-xslfo-antennahouse
+  namespace: mw-services
+spec:
+  template:
+    spec:
+      containers:
+        - name: mw-xslfo-antennahouse
+          image: gitlab.mindworking.local:5050/mw-development/mw-service-xslfo-antennahouse/mw-service-xslfo-antennahouse:latest
+          resources:
+            limits:
+              cpu: 500m
+              memory: 1Gi
+            requests:
+              cpu: 250m
+              memory: 1Gi

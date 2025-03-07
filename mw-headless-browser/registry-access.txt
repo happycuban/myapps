@@ -1,0 +1,5 @@
+kubectl create secret docker-registry gitlab-token-auth \
+  --docker-server=https://gitlab.mindworking.local:5050 \
+  --docker-username=mw-development-deploy-token2 \
+  --docker-password="vPsVsLxEi8Av9QH8mwRx" \
+  -n mw-service-headless

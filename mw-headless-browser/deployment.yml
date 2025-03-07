@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mw-service-headless
+  namespace: mw-services
+spec:
+  selector:
+    matchLabels:
+      app: mw-service-headless
+  template:
+    metadata:
+      labels:
+        app: mw-service-headless
+    spec:
+      containers:
+        - name: mw-service-headless
+          image: gitlab.mindworking.local:5050/mw-development/mw-service-headless-browser/mw-service-headless-browser:1.1.0-ci0066-b95ed82
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              cpu: "4"
+              memory: 1Gi
+            requests:
+              cpu: 500m
+              memory: 1Gi
+          

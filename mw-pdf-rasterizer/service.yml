@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mw-service-pdf-rasterizer
+  namespace: mw-services
+spec:
+  ipFamilyPolicy: PreferDualStack
+  selector:
+    app: mw-service-pdf-rasterizer
+  ports:
+    - port: 8080
+      targetPort: 8080
