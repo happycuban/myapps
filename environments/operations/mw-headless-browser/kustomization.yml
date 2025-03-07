@@ -4,11 +4,10 @@ kind: Kustomization
 namespace: mw-services
 
 resources:
-  - ../../../mw-antennahouse
+  - ../../../mw-headless-browser
   - keda-scaler.yml
   - http_route.yml
-  - pv.yml
-  - default-headers.yml
+  - default-headers.yml 
 
 patches:
   - path: patch-deployment.yml

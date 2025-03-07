@@ -1,8 +1,8 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: mw-headless-header
-  namespace: mw-services
+  name: headless-header
+  namespace: services
 spec:
   headers:
     browserXssFilter: true

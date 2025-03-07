@@ -2,8 +2,8 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: mw-dashboard-http
-  namespace: mw-services
+  name: dashboard-http
+  namespace: services
 spec:
   parentRefs:
   - name: traefik
@@ -11,7 +11,7 @@ spec:
     namespace: kube-system
     kind: Gateway
   hostnames:
-  - mw-dashboard-k8s.ops.mindworking.local
+  - dashboard.ops.xxx.xx
   rules:
     - filters:
         - type: RequestRedirect
@@ -23,8 +23,8 @@ spec:
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: mw-dashboard-https
-  namespace: mw-services
+  name: dashboard-https
+  namespace: services
   labels:
     gateway: traefik
 spec:
@@ -34,19 +34,19 @@ spec:
     namespace: kube-system
     kind: Gateway
   hostnames:
-  - mw-dashboard-k8s.ops.mindworking.local
+  - dashboard.ops.xxx.xx
   rules:
   - matches:
     - path:
         type: PathPrefix
         value: /
     backendRefs:
-    - name: mw-dashboard-homer
-      namespace: mw-services
+    - name: dashboard-homer
+      namespace: services
       port: 8080  
     filters: 
     - type: ExtensionRef
       extensionRef:
         group: traefik.io
         kind: Middleware
-        name: mw-dashboard-headers
+        name: dashboard-headers

@@ -1,19 +1,19 @@
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
-  name: mw-service-pdf-rasterizer-keda-scaler
-  namespace: mw-services
+  name: service-headless-keda-scaler
+  namespace: services
 spec:
   scaleTargetRef:
-    name: mw-service-pdf-rasterizer
+    name: service-headless
   pollingInterval: 15
   cooldownPeriod:  30
-  minReplicaCount: 1
-  maxReplicaCount: 3
+  minReplicaCount: 2
+  maxReplicaCount: 5
   triggers:
     - type: prometheus
       metadata:
         serverAddress: http://prometheus-operator-kube-p-prometheus.monitoring.svc.cluster.local:9090
         metricName: traefik_service_requests_total
-        query: max(irate(traefik_service_requests_total{exported_service=~".*rasterizer.*"}[2m]))  # rate(traefik_service_requests_total{service=~"^mw-.*"}[5m]) * 300
+        query: max(irate(traefik_service_requests_total{exported_service=~".*headless.*"}[2m]))  # rate(traefik_service_requests_total{service=~"^mw-.*"}[5m]) * 300
         threshold: '10'

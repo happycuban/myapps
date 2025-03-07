@@ -1,11 +1,11 @@
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
-  name: mw-dashboard-keda-scaler
-  namespace: mw-services
+  name: dashboard-keda-scaler
+  namespace: services
 spec:
   scaleTargetRef:
-    name: mw-dashboard-homer
+    name: dashboard-homer
   pollingInterval: 15
   cooldownPeriod:  30
   minReplicaCount: 1

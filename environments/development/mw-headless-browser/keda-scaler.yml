@@ -1,11 +1,11 @@
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
-  name: mw-service-headless-keda-scaler
-  namespace: mw-services
+  name: service-headless-keda-scaler
+  namespace: services
 spec:
   scaleTargetRef:
-    name: mw-service-headless
+    name: service-headless
   pollingInterval: 15
   cooldownPeriod:  30
   minReplicaCount: 2

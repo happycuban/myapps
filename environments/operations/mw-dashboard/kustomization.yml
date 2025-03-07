@@ -1,14 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: mw-services
+namespace: services
 
 # Define the Helm chart as a remote base using Kustomize’s helmCharts field.
 helmCharts:
 - name: homer
-  namespace: mw-services
+  namespace: services
   repo: https://djjudas21.github.io/charts/
-  releaseName: mw-dashboard
+  releaseName: dashboard
   # Optionally, you can specify a values file (which should be present in this folder)
   valuesFile: values.yaml
 
